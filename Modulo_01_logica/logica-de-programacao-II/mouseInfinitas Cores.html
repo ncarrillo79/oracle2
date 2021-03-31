@@ -1,0 +1,53 @@
+
+<canvas width="600" height="400"></canvas>
+selecione a cor <input type="color">
+
+<script>
+    /*Agora, vamos adicionar um input em nossa página logo após o canvas. No mundo HTML, existe o input do tipo color, que ao ser clicado exibe uma paleta de cores para podermos selecionar:
+    
+    Recarregue a página e experimente clicar no novo elemento que será exibido na página. Automaticamente será exibido uma paleta de cores. Escolha uma cor qualquer. Escolheu? Quando você escolhe uma cor, o input sabe a cor que você guardou e podemos perguntar para ele.
+
+Lembra do primeiro módulo como conseguíamos buscar no mundo HTML um input e extrair seu valor? Se conseguirmos fazer isso, podemos usar o valor na propriedade pincel.fillStyle na hora de desenhar o nosso círculo.
+
+A ideia desse exercício é você recordar o módulo anterior e tentar conciliar o que aprendeu neste exercício. Dessa vez, não darei muitas dicas.
+
+Assim como obtemos o canvas através de document.querySelector, também obtemos nosso input, que guardaremos na variável paleta. Lembre-se que paleta é o input lá do mundo HTML e para pegarmos o valor de um input precisamos fazer, no caso da nossa variável, paleta.value. Toda vez que alguém alterar a cor lá no mundo HTML, paleta.value automaticamente terá o novo valor. Sendo assim, podemos passar para pincel.fillStyle o valor de paleta.value:
+*/
+
+    var paleta = document.querySelector('input');
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var desenha = false;
+
+    function desenhaCirculo(evento) {
+
+        if(desenha) {
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = paleta.value; // sempre pega o valor atual da paleta!
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            pincel.fill();
+        }
+        console.log(x + ',' + y);
+    }
+
+    tela.onmousemove = desenhaCirculo;
+
+    // atribuindo diretamente a função anônima
+    tela.onmousedown = function() {
+
+        desenha = true;
+    }
+
+    // atribuindo diretamente a função anônima
+     tela.onmouseup = function() {
+
+        desenha = false;
+    }
+
+</script>

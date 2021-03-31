@@ -1,0 +1,12 @@
+Através de gráficos podemos expressar visualmente dados ou valores numéricos, e assim facilitar a nossa compreensão. Gráficos ajudam a entender o relacionamento entre valores e facilitam tirar conclusões.
+
+Existem vários gráficos, entre os mais famosos está o gráfico de barras, que é o objeto de estudo desse exercício. Procuramos em alguns relatórios da Alura quais navegadores os nossos alunos utilizavam em 2015 e 2016. Separamos os dados:
+Em 2015: 50% Chrome, 25% Firefox, 20% Safari, 5% Outros (Opera, IE, etc).
+Em 2016: 65% Chrome, 20% Firefox, 13% Safari, 2% Outros (Opera, IE, Edge, etc).
+Ou seja, em 2015 50% dos nossos alunos usaram o navegador Chrome, 25% Firefox e assim para frente. Já em 2016 65% usavam Chrome e apenas 20% Firefox.
+
+Um gráfico de barras nada mais é do que um monte de retângulos representando os valores, algo assim:
+grafico-barra-1
+
+Implemente a função desenhaBarra e chame-a para desenhar duas barras!
+grafico-barra-2

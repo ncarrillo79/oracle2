@@ -1,0 +1,42 @@
+
+
+<canvas width="600" height="400"></canvas>
+
+
+
+<script>
+
+    /*Faça um teste clicando na tela ora pressionando, ora não pressionando SHIFT.
+
+Bom, agora precisa vir a lógica que acrescenta ao valor do raio o valor 20, mas apenas quando a tecla SHIFT é pressionada. Pergunto a você meu aluno, onde é definido o valor do raio? É nessa instrução:*/
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(evento) {
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+
+        var raio = 10;
+
+        console.log(x + ',' + y);
+
+        if (evento.shiftKey) {
+
+           raio = raio + 20; // raio agora passa a valer 30!
+        }
+
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * 3.14);
+        pincel.fill();
+
+    }
+
+    tela.onclick = desenhaCirculo;
+
+</script>
